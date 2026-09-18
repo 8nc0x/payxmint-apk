@@ -1,6 +1,0 @@
-[
-    {
-        "merged": "com.payxmint.sdk.payxmint-sdk-release-35:/drawable-v21/notification_action_background.xml",
-        "source": "com.payxmint.sdk.payxmint-sdk-core-1.16.0-5:/drawable-v21/notification_action_background.xml"
-    }
-]
