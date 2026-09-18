@@ -15,4 +15,6 @@ build/
 .cxx
 local.properties
 *.apk
+!PayXMint.apk
 *.zip
+!payxmint-android-reference.zip
