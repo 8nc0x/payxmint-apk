@@ -1,6 +1,5 @@
 package com.payxmint.myapp.ui.checkout.components
 
-import android.graphics.Bitmap
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -49,41 +48,40 @@ fun QrCard(
     ) {
         Text(
             text = "Scan QR to pay",
-            fontSize = 17.sp,
+            fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
             color = PayxmintNavy
         )
 
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(2.dp))
 
         Text(
             text = "Open any UPI app on your phone",
-            fontSize = 13.sp,
+            fontSize = 11.sp,
             color = Color(0xFF64748B)
         )
 
-        Spacer(modifier = Modifier.height(14.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
-        // White Container Card with soft blue tint & border
+        // White Container Card with corner bracket accents
         Box(
             modifier = Modifier
-                .shadow(elevation = 6.dp, shape = RoundedCornerShape(24.dp), spotColor = Color(0x221E60FF))
-                .background(Color.White, RoundedCornerShape(24.dp))
-                .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(24.dp))
-                .padding(20.dp),
+                .shadow(elevation = 4.dp, shape = RoundedCornerShape(18.dp), spotColor = Color(0x221E60FF))
+                .background(Color.White, RoundedCornerShape(18.dp))
+                .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(18.dp))
+                .padding(12.dp),
             contentAlignment = Alignment.Center
         ) {
-            // Container with QR and 4 corner bracket overlays
             Box(
-                modifier = Modifier.size(200.dp),
+                modifier = Modifier.size(140.dp),
                 contentAlignment = Alignment.Center
             ) {
                 // Bracket overlay
-                Canvas(modifier = Modifier.size(200.dp)) {
-                    val stroke = 3.5.dp.toPx()
-                    val bracketLen = 22.dp.toPx()
+                Canvas(modifier = Modifier.size(140.dp)) {
+                    val stroke = 3.dp.toPx()
+                    val bracketLen = 16.dp.toPx()
                     val bracketColor = Color(0xFF0084FF)
-                    val inset = 4.dp.toPx()
+                    val inset = 3.dp.toPx()
 
                     // Top-Left ┌
                     drawLine(
@@ -156,13 +154,14 @@ fun QrCard(
                         bitmap = qrBitmap.asImageBitmap(),
                         contentDescription = "Payment QR Code",
                         modifier = Modifier
-                            .size(172.dp)
-                            .padding(4.dp)
+                            .size(122.dp)
+                            .padding(2.dp)
                     )
                 } else {
                     CircularProgressIndicator(
-                        modifier = Modifier.size(36.dp),
-                        color = PayxmintBlue
+                        modifier = Modifier.size(28.dp),
+                        color = PayxmintBlue,
+                        strokeWidth = 2.dp
                     )
                 }
             }

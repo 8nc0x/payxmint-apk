@@ -46,7 +46,7 @@ fun TrustFooter(
             TrustBadge(text = "✓ Verified")
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         // Powered by PayxMint
         Text(
@@ -56,7 +56,7 @@ fun TrustFooter(
                     append("PayxMint")
                 }
             },
-            fontSize = 13.sp,
+            fontSize = 12.sp,
             color = Color(0xFF64748B)
         )
     }
@@ -66,15 +66,15 @@ fun TrustFooter(
 private fun TrustBadge(text: String) {
     Box(
         modifier = Modifier
-            .background(TrustGreenBg, RoundedCornerShape(16.dp))
-            .border(1.dp, TrustGreenBorder, RoundedCornerShape(16.dp))
-            .padding(horizontal = 10.dp, vertical = 6.dp),
+            .background(TrustGreenBg, RoundedCornerShape(12.dp))
+            .border(1.dp, TrustGreenBorder, RoundedCornerShape(12.dp))
+            .padding(horizontal = 8.dp, vertical = 4.dp),
         contentAlignment = Alignment.Center
     ) {
         Text(
             text = text,
             color = TrustGreen,
-            fontSize = 11.sp,
+            fontSize = 10.sp,
             fontWeight = FontWeight.SemiBold
         )
     }

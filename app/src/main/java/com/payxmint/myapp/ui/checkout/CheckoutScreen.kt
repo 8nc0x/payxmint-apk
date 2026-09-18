@@ -14,9 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -154,110 +152,102 @@ private fun ReadyCheckoutContent(
     onPaytmClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val scrollState = rememberScrollState()
-
     Column(
         modifier = modifier
             .fillMaxSize()
-            .verticalScroll(scrollState)
-            .padding(horizontal = 24.dp, vertical = 20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(horizontal = 20.dp, vertical = 6.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
-        // 1. Amount to pay
-        Text(
-            text = "Amount to pay",
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Medium,
-            color = Color(0xFF64748B)
-        )
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        // Dynamic Amount (e.g. ₹1, ₹2, ₹3)
-        val formattedAmount = if (intent.amount % 1.0 == 0.0) {
-            String.format(Locale.getDefault(), "₹%.0f", intent.amount)
-        } else {
-            String.format(Locale.getDefault(), "₹%.2f", intent.amount)
-        }
-        Text(
-            text = formattedAmount,
-            fontSize = 38.sp,
-            fontWeight = FontWeight.Black,
-            color = PayxmintNavy,
-            letterSpacing = (-0.5).sp
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        // Countdown Timer Pill
-        val minutes = remainingSeconds / 60
-        val seconds = remainingSeconds % 60
-        val timeString = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
-
-        Box(
-            modifier = Modifier
-                .background(TimerBg, RoundedCornerShape(16.dp))
-                .border(1.dp, TimerBorder, RoundedCornerShape(16.dp))
-                .padding(horizontal = 14.dp, vertical = 5.dp),
-            contentAlignment = Alignment.Center
+        // 1. Amount to pay & Timer
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = "⏱",
-                    fontSize = 13.sp
-                )
-                Spacer(modifier = Modifier.width(6.dp))
-                Text(
-                    text = timeString,
-                    color = TimerText,
-                    fontSize = 13.sp,
-                    fontWeight = FontWeight.Bold
-                )
+            Text(
+                text = "Amount to pay",
+                fontSize = 13.sp,
+                fontWeight = FontWeight.Medium,
+                color = Color(0xFF64748B)
+            )
+
+            val formattedAmount = if (intent.amount % 1.0 == 0.0) {
+                String.format(Locale.getDefault(), "₹%.0f", intent.amount)
+            } else {
+                String.format(Locale.getDefault(), "₹%.2f", intent.amount)
+            }
+            Text(
+                text = formattedAmount,
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Black,
+                color = PayxmintNavy,
+                letterSpacing = (-0.5).sp
+            )
+
+            // Countdown Timer Pill
+            val minutes = remainingSeconds / 60
+            val seconds = remainingSeconds % 60
+            val timeString = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
+
+            Box(
+                modifier = Modifier
+                    .background(TimerBg, RoundedCornerShape(14.dp))
+                    .border(1.dp, TimerBorder, RoundedCornerShape(14.dp))
+                    .padding(horizontal = 12.dp, vertical = 3.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = "⏱",
+                        fontSize = 12.sp
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = timeString,
+                        color = TimerText,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
             }
         }
 
-        Spacer(modifier = Modifier.height(22.dp))
+        // 2. QR Section & Polling Indicator
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            val rawQrData = intent.qrData ?: intent.upiLink ?: ""
+            QrCard(qrData = rawQrData)
 
-        // 2. QR Section
-        val rawQrData = intent.qrData ?: intent.upiLink ?: ""
-        QrCard(qrData = rawQrData)
+            Spacer(modifier = Modifier.height(6.dp))
 
-        Spacer(modifier = Modifier.height(18.dp))
+            if (isPolling) {
+                LinearProgressIndicator(
+                    modifier = Modifier
+                        .fillMaxWidth(0.5f)
+                        .height(3.dp),
+                    color = PayxmintBlue,
+                    trackColor = Color(0xFFE2E8F0)
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+            }
 
-        // 3. Waiting for payment confirmation...
-        if (isPolling) {
-            LinearProgressIndicator(
-                modifier = Modifier
-                    .fillMaxWidth(0.6f)
-                    .height(4.dp),
-                color = PayxmintBlue,
-                trackColor = Color(0xFFE2E8F0)
+            Text(
+                text = "Waiting for payment confirmation...",
+                fontSize = 12.sp,
+                color = Color(0xFF64748B),
+                fontWeight = FontWeight.Medium
             )
-            Spacer(modifier = Modifier.height(10.dp))
         }
 
-        Text(
-            text = "Waiting for payment confirmation...",
-            fontSize = 13.sp,
-            color = Color(0xFF64748B),
-            fontWeight = FontWeight.Medium
-        )
-
-        Spacer(modifier = Modifier.height(14.dp))
-
-        // 4. UPI App Buttons (PhonePe, GPay, Paytm)
+        // 3. UPI App Buttons (PhonePe, GPay, Paytm)
         UpiAppButtons(
             onPhonePeClick = onPhonePeClick,
             onGooglePayClick = onGooglePayClick,
             onPaytmClick = onPaytmClick
         )
 
-        Spacer(modifier = Modifier.height(26.dp))
-
-        // 5. Trust Badges & Powered by PayxMint
+        // 4. Trust Badges & Powered by PayxMint
         TrustFooter()
-
-        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 

@@ -38,46 +38,40 @@ fun CheckoutHeader(
                     )
                 )
             )
-            .padding(horizontal = 20.dp, vertical = 18.dp)
+            .padding(horizontal = 16.dp, vertical = 10.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // App / PayXMint Brand Icon with pulse wave
             Box(
                 modifier = Modifier
-                    .size(46.dp)
-                    .background(Color(0xFF155DFC), RoundedCornerShape(12.dp))
-                    .border(1.dp, Color(0x66FFFFFF), RoundedCornerShape(12.dp)),
+                    .size(38.dp)
+                    .background(Color(0xFF155DFC), RoundedCornerShape(10.dp))
+                    .border(1.dp, Color(0x66FFFFFF), RoundedCornerShape(10.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
                     text = "⚡",
-                    fontSize = 22.sp
+                    fontSize = 18.sp
                 )
             }
 
-            Spacer(modifier = Modifier.width(14.dp))
+            Spacer(modifier = Modifier.width(12.dp))
 
             Column {
                 Text(
                     text = "PayXMint",
                     color = Color.White,
-                    fontSize = 20.sp,
+                    fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
-                    letterSpacing = 0.5.sp
+                    letterSpacing = 0.3.sp
                 )
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(top = 2.dp)
-                ) {
-                    Text(
-                        text = "🛡 100% secure · PayxMint",
-                        color = Color(0xCCFFFFFF),
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+                Text(
+                    text = "🛡 100% secure · PayxMint",
+                    color = Color(0xCCFFFFFF),
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Medium
+                )
             }
         }
     }

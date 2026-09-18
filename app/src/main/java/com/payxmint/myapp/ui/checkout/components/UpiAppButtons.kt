@@ -49,7 +49,7 @@ fun UpiAppButtons(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 12.dp),
+                .padding(vertical = 6.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             HorizontalDivider(
@@ -63,7 +63,7 @@ fun UpiAppButtons(
                 fontWeight = FontWeight.SemiBold,
                 color = Color(0xFF64748B),
                 letterSpacing = 1.sp,
-                modifier = Modifier.padding(horizontal = 12.dp)
+                modifier = Modifier.padding(horizontal = 10.dp)
             )
             HorizontalDivider(
                 modifier = Modifier.weight(1f),
@@ -72,15 +72,15 @@ fun UpiAppButtons(
             )
         }
 
-        Spacer(modifier = Modifier.height(6.dp))
+        Spacer(modifier = Modifier.height(4.dp))
 
         // 1. PhonePe Button
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(52.dp)
-                .shadow(elevation = 2.dp, shape = RoundedCornerShape(26.dp))
-                .clip(RoundedCornerShape(26.dp))
+                .height(44.dp)
+                .shadow(elevation = 2.dp, shape = RoundedCornerShape(22.dp))
+                .clip(RoundedCornerShape(22.dp))
                 .background(PhonePePurple)
                 .clickable { onPhonePeClick() },
             contentAlignment = Alignment.Center
@@ -92,40 +92,40 @@ fun UpiAppButtons(
                 // PhonePe Icon
                 Box(
                     modifier = Modifier
-                        .size(28.dp)
+                        .size(24.dp)
                         .background(Color.White, CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = "पे",
                         color = PhonePePurple,
-                        fontSize = 16.sp,
+                        fontSize = 14.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
 
-                Spacer(modifier = Modifier.width(10.dp))
+                Spacer(modifier = Modifier.width(8.dp))
 
                 Text(
                     text = "PhonePe",
                     color = Color.White,
-                    fontSize = 18.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(14.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         // 2. Google Pay Button
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(52.dp)
-                .shadow(elevation = 2.dp, shape = RoundedCornerShape(26.dp))
-                .clip(RoundedCornerShape(26.dp))
+                .height(44.dp)
+                .shadow(elevation = 2.dp, shape = RoundedCornerShape(22.dp))
+                .clip(RoundedCornerShape(22.dp))
                 .background(Color.White)
-                .border(1.dp, Color(0xFFCBD5E1), RoundedCornerShape(26.dp))
+                .border(1.dp, Color(0xFFCBD5E1), RoundedCornerShape(22.dp))
                 .clickable { onGooglePayClick() },
             contentAlignment = Alignment.Center
         ) {
@@ -138,29 +138,29 @@ fun UpiAppButtons(
                     Text(
                         text = "G",
                         color = GPayBlue,
-                        fontSize = 22.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    Spacer(modifier = Modifier.width(6.dp))
+                    Spacer(modifier = Modifier.width(5.dp))
                     Text(
                         text = "Pay",
                         color = GPayDark,
-                        fontSize = 20.sp,
+                        fontSize = 18.sp,
                         fontWeight = FontWeight.Medium
                     )
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(14.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         // 3. Paytm Button
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(52.dp)
-                .shadow(elevation = 2.dp, shape = RoundedCornerShape(26.dp))
-                .clip(RoundedCornerShape(26.dp))
+                .height(44.dp)
+                .shadow(elevation = 2.dp, shape = RoundedCornerShape(22.dp))
+                .clip(RoundedCornerShape(22.dp))
                 .background(PaytmCyan)
                 .clickable { onPaytmClick() },
             contentAlignment = Alignment.Center
@@ -172,7 +172,7 @@ fun UpiAppButtons(
                 Text(
                     text = "paytm",
                     color = Color.White,
-                    fontSize = 24.sp,
+                    fontSize = 22.sp,
                     fontWeight = FontWeight.ExtraBold,
                     letterSpacing = (-0.5).sp
                 )

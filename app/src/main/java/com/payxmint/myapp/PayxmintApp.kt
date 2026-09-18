@@ -13,6 +13,7 @@ import com.payxmint.myapp.ui.cart.CartViewModel
 import com.payxmint.myapp.ui.checkout.CheckoutScreen
 import com.payxmint.myapp.ui.checkout.CheckoutViewModel
 import com.payxmint.myapp.ui.result.PaymentResultScreen
+import com.payxmint.myapp.ui.shop.AmountInputScreen
 import com.payxmint.myapp.ui.shop.ShopScreen
 import java.net.URLDecoder
 import java.net.URLEncoder
@@ -31,14 +32,10 @@ fun PayxmintApp(
         startDestination = "shop",
         modifier = modifier
     ) {
-        // 1. Shop Screen
+        // 1. Amount Input Screen (Direct Buy Checkout)
         composable("shop") {
-            ShopScreen(
-                cartViewModel = cartViewModel,
-                onNavigateToCart = {
-                    navController.navigate("cart")
-                },
-                onDirectCheckout = { amount ->
+            AmountInputScreen(
+                onBuyClick = { amount ->
                     checkoutViewModel.resetState()
                     navController.navigate("checkout/$amount")
                 }
