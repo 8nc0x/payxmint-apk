@@ -37,9 +37,14 @@ fun PayxmintApp(
                 cartViewModel = cartViewModel,
                 onNavigateToCart = {
                     navController.navigate("cart")
+                },
+                onDirectCheckout = { amount ->
+                    checkoutViewModel.resetState()
+                    navController.navigate("checkout/$amount")
                 }
             )
         }
+
 
         // 2. Cart Screen
         composable("cart") {

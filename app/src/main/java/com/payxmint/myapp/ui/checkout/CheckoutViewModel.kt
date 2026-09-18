@@ -36,7 +36,8 @@ class CheckoutViewModel : ViewModel() {
 
         viewModelScope.launch {
             try {
-                val orderId = "tx_" + System.currentTimeMillis() + "_" + UUID.randomUUID().toString().take(6)
+                val randomSuffix = UUID.randomUUID().toString().filter { it.isLetterOrDigit() }.take(6)
+                val orderId = "ord" + System.currentTimeMillis() + randomSuffix
                 val idempotencyKey = UUID.randomUUID().toString()
                 val formattedAmount = String.format(Locale.US, "%.2f", amount)
 
@@ -64,9 +65,24 @@ class CheckoutViewModel : ViewModel() {
                     startStatusPolling(intentResponse.orderId, intentResponse)
                     startCountdownTimer()
                 } else {
-                    val errorBody = response.errorBody()?.string() ?: "Failed to initiate payment"
+                    val rawError = response.errorBody()?.string().orEmpty()
+                    val userMessage = try {
+                        val json = com.google.gson.JsonParser.parseString(rawError).asJsonObject
+                        if (json.has("error")) {
+                            val errObj = json.get("error")
+                            if (errObj.isJsonObject && errObj.asJsonObject.has("message")) {
+                                errObj.asJsonObject.get("message").asString
+                            } else if (errObj.isJsonPrimitive) {
+                                errObj.asString
+                            } else {
+                                rawError
+                            }
+                        } else rawError
+                    } catch (_: Exception) {
+                        rawError
+                    }
                     _paymentState.value = PaymentUiState.Error(
-                        message = "API Error (${response.code()}): $errorBody"
+                        message = "PayXMint (${response.code()}): $userMessage"
                     )
                 }
             } catch (e: Exception) {
@@ -75,6 +91,7 @@ class CheckoutViewModel : ViewModel() {
                     message = e.localizedMessage ?: "Network error connecting to PayXMint"
                 )
             }
+
         }
     }
 
