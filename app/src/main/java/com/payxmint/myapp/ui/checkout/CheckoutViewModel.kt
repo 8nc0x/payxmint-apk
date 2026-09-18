@@ -46,9 +46,9 @@ class CheckoutViewModel : ViewModel() {
                     orderId = orderId,
                     customerMobile = "9876543210",
                     customerEmail = "test@payxmint.com",
-                    redirectUrl = "https://payxmint.com/thankyou",
-                    gateway = "GPAY"
+                    redirectUrl = "https://payxmint.com/thankyou"
                 )
+
 
                 val response = ApiClient.apiService.createIntent(
                     idempotencyKey = idempotencyKey,

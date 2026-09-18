@@ -14,8 +14,9 @@ data class CreateIntentRequest(
     @SerializedName("redirect_url")
     val redirectUrl: String? = "https://payxmint.com/thankyou",
     @SerializedName("gateway")
-    val gateway: String? = "GPAY",
+    val gateway: String? = null,
     @SerializedName("metadata")
+
     val metadata: Map<String, String>? = emptyMap()
 )
 
