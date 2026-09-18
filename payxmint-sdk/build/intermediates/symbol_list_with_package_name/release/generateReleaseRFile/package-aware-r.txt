@@ -1,0 +1,2 @@
+com.payxmint.sdk
+xml payxmint_file_paths

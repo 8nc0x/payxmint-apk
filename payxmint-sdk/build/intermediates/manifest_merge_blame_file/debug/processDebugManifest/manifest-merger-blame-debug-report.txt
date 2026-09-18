@@ -1,0 +1,59 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.payxmint.sdk" >
+4
+5    <uses-sdk android:minSdkVersion="24" />
+5-->INJECTED
+5-->INJECTED
+6
+7    <uses-permission android:name="android.permission.INTERNET" />
+7-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:4:5-67
+7-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:4:22-64
+8
+9    <!-- Queries block automatically merged into merchant applications -->
+10    <queries>
+10-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:7:5-15:15
+11        <package android:name="com.phonepe.app" />
+11-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:8:9-51
+11-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:8:18-48
+12        <package android:name="net.one97.paytm" />
+12-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:9:9-51
+12-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:9:18-48
+13        <package android:name="com.google.android.apps.nbu.paisa.user" />
+13-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:10:9-74
+13-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:10:18-71
+14
+15        <intent>
+15-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:11:9-14:18
+16            <action android:name="android.intent.action.VIEW" />
+16-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:12:13-65
+16-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:12:21-62
+17
+18            <data android:scheme="upi" />
+18-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:13:13-42
+18-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:13:19-39
+19        </intent>
+20    </queries>
+21
+22    <application>
+22-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:17:5-27:19
+23        <provider
+23-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:18:9-26:20
+24            android:name="androidx.core.content.FileProvider"
+24-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:19:13-62
+25            android:authorities="${applicationId}.payxmint.fileprovider"
+25-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:20:13-73
+26            android:exported="false"
+26-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:21:13-37
+27            android:grantUriPermissions="true" >
+27-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:22:13-47
+28            <meta-data
+28-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:23:13-25:63
+29                android:name="android.support.FILE_PROVIDER_PATHS"
+29-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:24:17-67
+30                android:resource="@xml/payxmint_file_paths" />
+30-->C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\AndroidManifest.xml:25:17-60
+31        </provider>
+32    </application>
+33
+34</manifest>

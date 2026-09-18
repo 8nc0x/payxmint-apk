@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.payxmint.sdk.payxmint-sdk-release-35:/xml/payxmint_file_paths.xml",
+        "source": "com.payxmint.sdk.payxmint-sdk-main-36:/xml/payxmint_file_paths.xml"
+    }
+]

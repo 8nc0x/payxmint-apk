@@ -1,0 +1,9 @@
+com.payxmint.sdk.payxmint-sdk-pngs-0 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\build\generated\res\pngs\release
+com.payxmint.sdk.payxmint-sdk-updated_navigation_xml-1 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\build\generated\updated_navigation_xml\release
+com.payxmint.sdk.payxmint-sdk-mergeReleaseResources-2 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.payxmint.sdk.payxmint-sdk-mergeReleaseResources-3 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.payxmint.sdk.payxmint-sdk-release-4 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\build\intermediates\merged_res\release\mergeReleaseResources
+com.payxmint.sdk.payxmint-sdk-release-5 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\build\intermediates\packaged_res\release\packageReleaseResources
+com.payxmint.sdk.payxmint-sdk-main-6 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\main\res
+com.payxmint.sdk.payxmint-sdk-release-7 C:\Users\snaxc\AndroidStudioProjects\payxmint\payxmint-sdk\src\release\res
+gradleHome-0 C:\Users\snaxc\.gradle

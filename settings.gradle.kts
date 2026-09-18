@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "payxmint"
 include(":app")
+include(":payxmint-sdk")
